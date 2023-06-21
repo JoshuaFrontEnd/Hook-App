@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const SimpleForm = () => {
 
@@ -68,6 +68,22 @@ export const SimpleForm = () => {
 
     });
   }
+
+  // Al pasarle un arreglo vacío el useEffect se disparara una sola vez
+  useEffect(() => {
+    console.log('useEffect called!');
+  }, []);
+
+  // Acá el useEffect se disparara siempre que cambie el formState
+  useEffect(() => {
+    console.log('formState changed!');
+  }, [formState]);
+
+  // Acá el useEffect se disparara siempre que cambie el email
+  useEffect(() => {
+    console.log('email changed!');
+  }, [email]);
+
 
   return (
     <>

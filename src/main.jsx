@@ -13,5 +13,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <CounterApp /> */}
     {/* <CounterWithCustomHook /> */}
     <SimpleForm />
-  </React.StrictMode>,
+  </React.StrictMode>
 )

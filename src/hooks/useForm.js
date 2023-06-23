@@ -19,10 +19,24 @@ export const useForm = ( initialForm = {} ) => {
     });
   }
 
+  // La variable 'initialForm' guarda el estado inicial del formulario, en este caso el estado inicial son valores de inputs vacios, por lo que si deseo 'limpiar/vaciar' los campos del formulario, puedo setear el formulario a su estado inicial
+  console.log( JSON.stringify(initialForm)) ;
+
+  const onResetForm = () => {
+    setFormState( initialForm );
+  }
+
   return {
     // Acá desestructuro el formulario, para poder acceder a sus campos en la funcion que llama a este custom Hook (Ej: username, password, etc).
     ...formState,
     formState,
-    onInputChange
+    onInputChange,
+    onResetForm
   }
 }
+
+/* ----------------------------------------------------------------
+  APUNTES ADICIONALES
+
+
+---------------------------------------------------------------- */

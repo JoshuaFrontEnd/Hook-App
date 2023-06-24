@@ -1,4 +1,5 @@
 import { useCounter, useFetch } from "../hooks";
+import { LoadingCharacter, Character } from "./components";
 
 export const MultipleCustomHooks = () => {
 
@@ -28,18 +29,8 @@ export const MultipleCustomHooks = () => {
 
       {
         isLoading
-          ? (
-            <div className="alert alert-info text-center">Loading...</div>
-          )
-          : (
-            <div className="card" style={{ width: '18rem' }}>
-              <img src={ image } className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">{ name }</h5>
-                <p className="card-text"><b>Species:</b> { species }</p>
-              </div>
-            </div>
-          )
+        ? <LoadingCharacter />
+        : <Character image={ image } name={ name } species={ species } />
       }
 
       <button className="btn btn-primary mt-3" onClick={ ()=>{ increment(1) } } disabled={ isLoading }>Next Character</button>

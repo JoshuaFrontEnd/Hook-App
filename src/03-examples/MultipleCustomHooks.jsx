@@ -1,14 +1,19 @@
-import { useFetch } from "../hooks/useFetch"
+import { useCounter } from "../hooks/useCounter";
+import { useFetch } from "../hooks/useFetch";
 
 export const MultipleCustomHooks = () => {
 
-  const { data, isLoading, hasError } = useFetch('https://api.breakingbadquotes.xyz/v1/quotes/');
+  const { state, increment } = useCounter(1);
+
+  console.log('state: ' + state);
+
+  const { data, isLoading, hasError } = useFetch(`https://rickandmortyapi.com/api/character/${ state }`);
 
   // Acá queda pendiente explicar la forma en que desestructuro la data de la API
   // const { author, quote } = false;
-  const { quote, author } = (!isLoading && data.length>0) && data[0];
+  const { name, species, image } = !!data && data;
 
-  console.log( { author, quote } );
+  console.log( { name, species, image } );
 
   // Una manera sencilla de hacer un loading
   // if ( isLoading ) {
@@ -19,7 +24,7 @@ export const MultipleCustomHooks = () => {
 
   return (
     <>
-      <h1>Random Fake Quotes</h1>
+      <h1>Rick and Morty Characters</h1>
       <hr />
 
       {
@@ -28,12 +33,19 @@ export const MultipleCustomHooks = () => {
             <div className="alert alert-info text-center">Loading...</div>
           )
           : (
-            <blockquote className="blockquote text-end">
-              <p className="mb-1">{ quote }</p>
-              <footer className="blockquote-footer">{ author }</footer>
-            </blockquote>
+            <div className="card" style={{ width: '18rem' }}>
+              <img src={ image } className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h5 className="card-title">{ name }</h5>
+                <p className="card-text"><b>Species:</b> { species }</p>
+              </div>
+            </div>
           )
       }
+
+      <button className="btn btn-primary mt-3" onClick={ ()=>{ increment(1) } }>Next Character</button>
+
+      { console.log('state: ' + state) }
 
     </>
   )

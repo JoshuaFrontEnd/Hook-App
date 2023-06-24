@@ -43,7 +43,7 @@ export const MultipleCustomHooks = () => {
           )
       }
 
-      <button className="btn btn-primary mt-3" onClick={ ()=>{ increment(1) } }>Next Character</button>
+      <button className="btn btn-primary mt-3" onClick={ ()=>{ increment(1) } } disabled={ isLoading }>Next Character</button>
 
       { console.log('state: ' + state) }
 

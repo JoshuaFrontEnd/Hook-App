@@ -6,8 +6,10 @@ export const CallbackHook = () => {
   const [counter, setCounter] = useState( 10 );
 
   const increment = useCallback(
-    () => {
-      setCounter( ( value ) => value + 1 );
+    // Acá 'valorAincrementar' viene de 'increment( 5 )' declarado en 'ShowIncrement.jsx', esto es el valor por el cual quiero incrementar el contador
+    // El valor de 'c' es el valor del contador
+    ( valorAincrementar ) => {
+      setCounter( ( c ) => c + valorAincrementar );
     },
     [],
   )

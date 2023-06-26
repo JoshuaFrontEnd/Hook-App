@@ -12,7 +12,9 @@ export const Small = React.memo(({ value }) => {
 /* ----------------------------------------------------------------
   APUNTES ADICIONALES
 
-  - Memo te permite saltarte el rerenderizado de un componente cuando sus props no han cambiado.
+  - Memo te permite saltarte el re-renderizado de un componente cuando sus props no han cambiado
+  - Memoriza componentes, es un HOC (Higher Order Components)
+  - Más info acá: https://ewebik.com/react-js/hoc
 
 ---------------------------------------------------------------- */
 

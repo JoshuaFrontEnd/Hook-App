@@ -26,3 +26,10 @@ export const CallbackHook = () => {
     </>
   )
 }
+
+/* ----------------------------------------------------------------
+  APUNTES ADICIONALES
+
+  - useCallback: memoriza funciones, es un hook
+
+---------------------------------------------------------------- */

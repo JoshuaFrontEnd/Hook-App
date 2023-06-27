@@ -46,5 +46,6 @@ export const MemoHook = () => {
   APUNTES ADICIONALES
 
   - useMemo: memoriza valores, es un hook
+  - Se usa para memorizar un valor cuando una o mas dependencias mantienen su valor/no cambian. El primer argumento es la función/callback que se vuelve a ejecutar si estas dependencias cambian. Devuelve una forma memorizada de la función
 
 ---------------------------------------------------------------- */

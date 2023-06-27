@@ -33,5 +33,6 @@ export const CallbackHook = () => {
   APUNTES ADICIONALES
 
   - useCallback: memoriza funciones, es un hook
+  - Se usa para mantener la referencia a una función (se puede decir que se mantiene la posición de memoria de esa función) siempre que sus dependencias se mantengan/no cambien. Devuelve una versión memorizada de la función que se le coloque, que será usada en otros lugares del código
 
 ---------------------------------------------------------------- */

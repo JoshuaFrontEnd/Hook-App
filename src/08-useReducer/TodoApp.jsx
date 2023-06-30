@@ -1,5 +1,7 @@
 import { useReducer } from 'react';
 import { todoReducer } from './todoReducer';
+import { TodoList } from './TodoList';
+import { TodoAdd } from './TodoAdd';
 
 // Seteando el estado inicial, un array con dos objetos
 const initialState = [{
@@ -19,6 +21,10 @@ export const TodoApp = () => {
   // Del hook extraemos el estado que en este caso pasa a llamarse 'toDos' y con 'dispatch' vamos a despechar los cambios que necesitemos hacer para obtener un nuevo estado desde el 'Reducer' que acabos de pasar
   const [ toDos, dispatch ] = useReducer( todoReducer, initialState);
 
+  const handleNewTodo = ( toDo ) => {
+    console.log({ toDo });
+  }
+
   return (
     <>
       <h1>TodoApp (10), <small>pendientes: 2</small></h1>
@@ -27,35 +33,17 @@ export const TodoApp = () => {
       <div className='row'>
 
         <div className='col-7'>
-          <ul className='list-group'>
-            {
-              toDos.map( toDo => (
-                <li key={ toDo.id } className='list-group-item d-flex align-items-center justify-content-between'>
-                  <span>Item 1</span>
-                  <button className='btn btn-danger'>Borrar</button>
-                </li>
-              ))
-            }
 
-          </ul>
+          <TodoList toDos={ toDos } />
+
         </div>
 
         <div className="col-5">
           <h4>Agregar ToDo</h4>
           <hr />
-          <form>
-            <input
-              type="text"
-              placeholder='¿Qué hay que hacer?'
-              className='form-control'
-            />
-            <button
-              type='submit'
-              className='btn btn-outline-primary mt-2'
-            >
-              Agregar
-            </button>
-          </form>
+
+          <TodoAdd onNewTodo={ handleNewTodo } />
+
         </div>
 
 

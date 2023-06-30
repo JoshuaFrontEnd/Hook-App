@@ -3,9 +3,12 @@ export const todoReducer = ( initialState = [], action ) => {
 
   // Si 'action.type' cumple el 'case' se ejecuta
   switch ( action.type ){
-    case 'ABC':
+
+    // Caso para agregar elementos nuevos a la lista de tareas
+    case '[TODO] Add Todo':
       // Este error, es en el caso de que todavia no haya creado la funcionalidad para este caso, recomendacion del profesor, ya que si no se implementa el error podria dar un falso positivo
-      throw new Error('Action.type = ABC no esta implementada');
+      // throw new Error('Action.type = ABC no esta implementada');
+      return [ ...initialState, action.payload ]
 
     default:
       return initialState;

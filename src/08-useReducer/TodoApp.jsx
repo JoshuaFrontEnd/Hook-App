@@ -22,7 +22,14 @@ export const TodoApp = () => {
   const [ toDos, dispatch ] = useReducer( todoReducer, initialState);
 
   const handleNewTodo = ( toDo ) => {
-    console.log({ toDo });
+
+    // Creando la funcionalidad que agrega nuevos elementos a la lista de tareas a través del formulario, usando el reducer
+    const action = {
+      type: '[TODO] Add Todo',
+      payload: toDo
+    }
+
+    dispatch( action );
   }
 
   return (

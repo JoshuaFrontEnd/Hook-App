@@ -6,7 +6,7 @@ const initialState = [{
 }]
 
 // Creacion del 'Reducer', es basicamente una función comun y corriente, que recibe dos parametros, el 'estado' que en este caso si no se declara tomara como valor inicial lo que haya en 'initialState' y la 'acción' que le dira al 'Reducer' como se cambiara el 'estado'
-// Para que la 'accion' no la tome como 'undefined' le asigno por defecto un arreglo vacio
+// Para que la 'accion' no la tome como 'undefined' le asigno por defecto un objeto vacio
 const todoReducer = ( state = initialState, action = {} ) => {
 
   if ( action.type === '[TODO] add toDo') {

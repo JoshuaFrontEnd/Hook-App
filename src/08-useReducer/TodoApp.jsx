@@ -18,7 +18,7 @@ const initialState = [{
 export const TodoApp = () => {
 
   // Al Hook 'useReducer' se le envía como primer parámetro una funcion 'Reducer' por referencia, es decir, que no recibimos el resultado de la función, ya que se encargara el Hook de ejecutarla, y como segundo parámetro, el estado del componente
-  // Del hook extraemos el estado que en este caso pasa a llamarse 'toDos' y con 'dispatch' vamos a despechar los cambios que necesitemos hacer para obtener un nuevo estado desde el 'Reducer' que acabos de pasar
+  // Del hook extraemos el estado que en este caso pasa a llamarse 'toDos' y con 'dispatch' vamos a despachar los cambios que necesitemos hacer para obtener un nuevo estado desde el 'Reducer' que acabo de pasar
   const [ toDos, dispatch ] = useReducer( todoReducer, initialState);
 
   const handleNewTodo = ( toDo ) => {

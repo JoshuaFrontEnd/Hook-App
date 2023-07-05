@@ -9,7 +9,7 @@ export const useForm = ( initialForm = {} ) => {
 
     const { name, value } = target;
 
-    console.log( { name, value });
+    // console.log( { name, value });
 
     setFormState({
 
@@ -20,7 +20,7 @@ export const useForm = ( initialForm = {} ) => {
   }
 
   // La variable 'initialForm' guarda el estado inicial del formulario, en este caso el estado inicial son valores de inputs vacios, por lo que si deseo 'limpiar/vaciar' los campos del formulario, puedo setear el formulario a su estado inicial
-  console.log( JSON.stringify(initialForm)) ;
+  // console.log( JSON.stringify(initialForm));
 
   const onResetForm = () => {
     setFormState( initialForm );

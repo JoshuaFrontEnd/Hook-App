@@ -48,6 +48,14 @@ export const TodoApp = () => {
     dispatch( action );
   }
 
+  // Función para eliminar un elemento 'toDo' en especifico desde el 'todoReducer.js'
+  const handleDeleteTodo = ( id ) => {
+    dispatch({
+      type: '[TODO] Remove Todo',
+      payload: id
+    })
+  }
+
   return (
     <>
       <h1>TodoApp (10), <small>pendientes: 2</small></h1>
@@ -58,7 +66,10 @@ export const TodoApp = () => {
         <div className='col-7'>
 
           {/* Acá envio el estado de la lista ('toDos') al componente 'TodoList' */}
-          <TodoList toDos={ toDos } />
+          <TodoList
+            toDos={ toDos }
+            onDeleteTodo={ handleDeleteTodo }
+          />
 
         </div>
 
@@ -67,7 +78,9 @@ export const TodoApp = () => {
           <hr />
 
           {/* Envio la función que se encargara de agregar nuevas tareas por hacer a las ya existentes, al componente que creara esas tareas ('TodoAdd.jsx') */}
-          <TodoAdd onNewTodo={ handleNewTodo } />
+          <TodoAdd
+            onNewTodo={ handleNewTodo }
+          />
 
         </div>
 

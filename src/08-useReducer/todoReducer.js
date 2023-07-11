@@ -14,6 +14,10 @@ export const todoReducer = ( initialState = [], action ) => {
       console.log([ ...initialState, action.payload ]);
       return [ ...initialState, action.payload ]
 
+    // Caso para eliminar un elemento 'toDo' en especifico
+    case '[TODO] Remove Todo':
+      return initialState.filter( toDo => toDo.id !== action.payload );
+
     // Por defecto si no se cumple ningun caso retorno siempre el estado actual del objeto
     default:
       return initialState;

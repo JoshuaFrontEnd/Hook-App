@@ -18,6 +18,21 @@ export const todoReducer = ( initialState = [], action ) => {
     case '[TODO] Remove Todo':
       return initialState.filter( toDo => toDo.id !== action.payload );
 
+    // Caso para tachar una tarea
+    case '[TODO] Toggle Todo':
+      return initialState.map( toDo => {
+
+        if ( toDo.id === action.payload ){
+          return {
+            ...toDo,
+            done: !toDo.done
+          }
+        }
+
+        return toDo;
+
+      });
+
     // Por defecto si no se cumple ningun caso retorno siempre el estado actual del objeto
     default:
       return initialState;

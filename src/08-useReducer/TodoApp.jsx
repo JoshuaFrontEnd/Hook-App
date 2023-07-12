@@ -56,6 +56,14 @@ export const TodoApp = () => {
     })
   }
 
+  // Toggle tarea completada/pendiente
+  const handleToggleTodo = ( id ) => {
+    dispatch({
+      type: '[TODO] Toggle Todo',
+      payload: id
+    })
+  }
+
   return (
     <>
       <h1>TodoApp (10), <small>pendientes: 2</small></h1>
@@ -69,6 +77,7 @@ export const TodoApp = () => {
           <TodoList
             toDos={ toDos }
             onDeleteTodo={ handleDeleteTodo }
+            onToggleTodo={ handleToggleTodo }
           />
 
         </div>

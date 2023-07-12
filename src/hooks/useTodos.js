@@ -25,6 +25,10 @@ export const useTodos = () => {
   // Para inicializar el 'estado' del 'reducer' con información guardada en el 'localStorage', podemos utilizar el tercer parametro del Hook 'useReducer', comunmente se setea con la palabra 'init' pero puede llamarse de cualquier forma
   const [ toDos, dispatch ] = useReducer( todoReducer, initialState, init );
 
+  const toDosCount = toDos.length;
+
+  const pendingToDosCount = toDos.filter( toDo => !toDo.done ).length;
+
   //Para poder guardar en el 'localStorage' la información que quiero ir agregando a la lista de tareas necesito usar el metodo 'setItem', con este metodo primero defino una variable, en este caso de nombre 'toDos' y segundo, defino la información a guardar, en este caso quiero guardar el estado de la aplicación cada vez que se agregue un nuevo elemento a la lista de tareas de cosas por hacer, por lo tanto necesito usar 'setItem' dentro del Hook 'useEffect', ya que este Hook va a detectar cada vez que se agregue un nuevo elemento
   // En el 'localStorage' no se pueden guardar objetos de manera literal o en formato JSON, por lo que hay que usar el metodo 'stringify' del objeto 'JSON' para convertir el objeto a guardar en una cadena de caracteres (texto plano)
   useEffect(() => {
@@ -64,6 +68,8 @@ export const useTodos = () => {
 
   return {
     toDos,
+    toDosCount,
+    pendingToDosCount,
     handleNewTodo,
     handleDeleteTodo,
     handleToggleTodo
